@@ -1,12 +1,20 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import Nav from '../components/Nav';
+import ConnectPage from "../components/Connect"
 
 export default function Detail() {
+
+    const isConnected = useSelector((state) => state.wallet.isConnected)
+
 
     const nftData = useSelector((state) => (state.detail.data))
 
     console.log(nftData);
+
+    if(!isConnected){
+        return (<ConnectPage/>)
+    }
     return (
         <div>
 
