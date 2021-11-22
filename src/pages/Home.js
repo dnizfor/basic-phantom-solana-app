@@ -3,7 +3,8 @@ import Connect from '../components/Connect'
 import Card from '../components/Card'
 import { useSelector } from 'react-redux'
 import axios from "axios";
-import { Connection, clusterApiUrl } from "@solana/web3.js"; import { getParsedNftAccountsByOwner, isValidSolanaAddress, createConnectionConfig, } from "@nfteyez/sol-rayz";
+import {  clusterApiUrl } from "@solana/web3.js"; 
+import { getParsedNftAccountsByOwner, isValidSolanaAddress, createConnectionConfig, } from "@nfteyez/sol-rayz";
 import Nav from '../components/Nav';
 
 
@@ -35,15 +36,6 @@ function Home() {
     }, [isConnected]);
 
 
-
-    //create a connection of devnet
-    const createConnection = () => {
-        return new Connection(clusterApiUrl("devnet"));
-    };
-
-
-    //Function to get all NFT information.
-    //get NFT
     const getAllNftData = async () => {
         try {
 
@@ -68,8 +60,6 @@ function Home() {
         }
     };
 
-
-    //Function to get all nft data
     const getNftTokenData = async () => {
         try {
             let nftData = await getAllNftData();
